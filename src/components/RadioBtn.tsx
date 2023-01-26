@@ -174,9 +174,9 @@ export default function RadioBtn() {
                                         disabled={true}
                                         visible={false}
                                     />
-                                    <div className='component_results'><strong>{values.salary?.toLocaleString('ru')} ₽</strong> сотрудник будет получать на руки</div>
-                                    <div className='component_results'><strong>{values.salaryEBDA?.toLocaleString('ru')} ₽</strong> НДФЛ, {percentNdfl}% от оклада</div>
-                                    <div className='component_results'><strong>{values.ndfl?.toLocaleString('ru')} ₽</strong> за сотрудника в месяц</div>
+                                    <div className='container_results'><strong>{values.salary?.toLocaleString('ru')} ₽</strong> сотрудник будет получать на руки</div>
+                                    <div className='container_results'><strong>{values.salaryEBDA?.toLocaleString('ru')} ₽</strong> НДФЛ, {percentNdfl}% от оклада</div>
+                                    <div className='container_results'><strong>{values.ndfl?.toLocaleString('ru')} ₽</strong> за сотрудника в месяц</div>
 
                                 </div>
 
