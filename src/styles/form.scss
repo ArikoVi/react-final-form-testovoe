@@ -123,6 +123,10 @@ $form-check-input-checked-bg-color: #fdb10d;
         -webkit-appearance: none;
         margin: 0; /* <-- Apparently some margin are still there even though it's hidden */
     }
+
+    &_results {
+        text-align: start;
+    }
 }
 
 .icon {
