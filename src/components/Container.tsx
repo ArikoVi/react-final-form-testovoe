@@ -6,6 +6,7 @@ import AmountField from './AmountField';
 import AmountRadioBlock from './AmountRadioBlock';
 import NdflSwitchBlock from './NdflSwitchBlock';
 import ResultsBlock from './ResultsBlock';
+import React from 'react'
 
 const sleep = (ms: any) => new Promise(resolve => setTimeout(resolve, ms));
 
@@ -57,6 +58,8 @@ export default function Container() {
                         <form onSubmit={handleSubmit}>
                             <div className="container_block">
                                 <AmountRadioBlock />
+                                {values.sum !== "МРОТ" && 
+                                (<React.Fragment>
                                 <NdflSwitchBlock haveNdfl={values.haveNdfl} />
                                 <AmountField sum={values.sum} />
                                 <ResultsBlock
@@ -66,6 +69,7 @@ export default function Container() {
                                     money={values.money}
                                     salary={values.salary}
                                     percentNdfl={percentNdfl} />
+                                    </React.Fragment>)}
                             </div>
                             {/* <div>{JSON.stringify(values)}</div> */}
                         </form>
