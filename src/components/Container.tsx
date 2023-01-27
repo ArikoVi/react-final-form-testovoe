@@ -29,9 +29,9 @@ const calculator: any = createDecorator(
     {
         field: 'money', //(money|haveNdfl)$/  подписаться на 2 ключа
         updates: {
-            salary: (value: string, allValues: any) => allValues?.haveNdfl ? Number(value.replace(/\s/g, '')) : Number(value.replace(/\s/g, '')) - (Number(value.replace(/\s/g, '')) * percentNdfl / 100),
-            salaryEBDA: (value: string, allValues: any) => allValues?.haveNdfl ? Math.round(Number(value.replace(/\s/g, '')) / (1 - percentNdfl / 100)) - Number(value.replace(/\s/g, '')) : Number(value) * percentNdfl / 100,
-            ndfl: (value: string, allValues: any) => allValues?.haveNdfl ? Math.round(Number(value.replace(/\s/g, '')) / (1 - percentNdfl / 100)) : Number(value.replace(/\s/g, '')),
+            salary: (value: string, allValues: any) => allValues?.haveNdfl ? Number(value?.replace(/\s/g, '')) : Number(value?.replace(/\s/g, '')) - (Number(value?.replace(/\s/g, '')) * percentNdfl / 100),
+            salaryEBDA: (value: string, allValues: any) => allValues?.haveNdfl ? Math.round(Number(value?.replace(/\s/g, '')) / (1 - percentNdfl / 100)) - Number(value?.replace(/\s/g, '')) : Number(value) * percentNdfl / 100,
+            ndfl: (value: string, allValues: any) => allValues?.haveNdfl ? Math.round(Number(value?.replace(/\s/g, '')) / (1 - percentNdfl / 100)) : Number(value?.replace(/\s/g, '')),
         },
     },
     {

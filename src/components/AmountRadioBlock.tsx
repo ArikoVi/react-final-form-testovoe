@@ -13,25 +13,6 @@ export default function AmountRadioBlock() {
     const [show, setShow] = useState(false);
     const target = useRef(null);
 
-    useEffect(() => {
-        console.log(show);
-        setShow(!show); 
-
-    }, []);
-
-    // const closeHandler = (e: any) => {
-
-    //     // e.preventDefault();
-    //     // console.log("closed click");
-    //     // console.log(show);
-    //     // console.log(!show);
-    //     show = !show;
-
-    //     // setShow(show => !show); 
-    //     console.log(show);
-
-    // }
-
     const tooltip = (
         <Tooltip id="overlay-example">
             <strong>МРОТ</strong> - минимальный размер оплаты труда. Разный для разных регионов.
@@ -55,11 +36,7 @@ export default function AmountRadioBlock() {
                             placement={"bottom"}
                             overlay={tooltip}
                         >
-                            <div className={`amount-radio-block_icon ${!show ? "info" : "cancel"}`} ref={target} onClick={() => {
-                                console.log(show);
-                                setShow(!show);
-                                console.log(show);
-                            }} >
+                            <div className={`amount-radio-block_icon ${!show ? "info" : "cancel"}`} ref={target} onClick={() => setShow(!show)} >
                             </div>
                         </OverlayTrigger>
                     </label>
