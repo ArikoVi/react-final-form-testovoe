@@ -4,7 +4,6 @@ import OverlayTrigger from 'react-bootstrap/OverlayTrigger';
 import Overlay from 'react-bootstrap/Overlay';
 import { Field } from 'react-final-form';
 import '../styles/amount-radio-block.scss';
-import { useEffect } from 'react'
 
 export default function AmountRadioBlock() {
     const radioVal: Array<string> = ['Оклад за месяц', "МРОТ", "Оплата за день", "Оплата за час"];
@@ -23,7 +22,7 @@ export default function AmountRadioBlock() {
 
         if (item === "МРОТ") {
             radio.push(
-                <>
+                <div className='amount-radio-block_item'>
                     <label className="amount-radio-block_item">
                         <Field name="sum"
                             component="input"
@@ -31,7 +30,8 @@ export default function AmountRadioBlock() {
                             value={item}></Field>
                         {' '}
                         <strong>{item}</strong>
-                        <OverlayTrigger
+                    </label>
+                    <OverlayTrigger
                             key={"bottom"}
                             placement={"bottom"}
                             overlay={tooltip}
@@ -39,11 +39,10 @@ export default function AmountRadioBlock() {
                             <div className={`amount-radio-block_icon ${!show ? "info" : "cancel"}`} ref={target} onClick={() => setShow(!show)} >
                             </div>
                         </OverlayTrigger>
-                    </label>
                     <Overlay target={target.current} show={show} placement="bottom">
                         {tooltip}
                     </Overlay>
-                </>
+                </div>
             )
         } else {
             radio.push(
