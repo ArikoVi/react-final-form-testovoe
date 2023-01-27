@@ -1,0 +1,14 @@
+.amount-field {
+    border-radius: 14px;
+    border: 1px solid rgb(198, 198, 198);
+    padding-left: 12px;
+    font-weight: bold;
+    width: 172px;
+    margin-left: 16px;
+    
+    input::-webkit-outer-spin-button,
+    input::-webkit-inner-spin-button {
+        -webkit-appearance: none;
+        margin: 0; 
+    }
+}

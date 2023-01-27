@@ -1,0 +1,44 @@
+.ndfl-switch-block {
+    display: flex;
+    align-items: center;
+    margin: 0 0 16px 16px;
+
+    .form-switch .form-check-input {
+        height: 18px;
+    }
+
+    .form-switch .form-check-input {
+        border-color: rgb(198, 198, 198);
+        background-color: rgb(198, 198, 198);
+
+        &:focus {
+            background-image:url(../svg/circle.svg);
+        }
+    }
+
+    .form-check-input:checked {
+        background-color: #fdb10d;
+        border-color: #fdb10d;
+    }
+
+    .form-check-input:focus {
+        box-shadow: none;
+    }
+
+    &_item {
+        display: flex;
+        align-items: center;
+        font-size: 14px;
+        font-weight: 500;
+        padding-right: 8px;
+        margin: 0;
+
+        &:last-child {
+            padding: 0 0 0 8px;
+        }
+
+        &.gray {
+            color:rgb(198, 198, 198);
+        }
+    }
+}
