@@ -45,9 +45,9 @@ const calculator: any = createDecorator(
     }
 )
 
-const Condition = ({ when, notIs, children }: any | any[]) => (
+const Condition = ({ when, isNot, children }: any | any[]) => (
     <Field name={when} subscription={{ value: true }}>
-        {({ input: { value } }) => (notIs.includes(value) ? null : children)}
+        {({ input: { value } }) => (isNot.includes(value) ? null : children)}
     </Field>
 )
 
@@ -64,7 +64,7 @@ export default function Container() {
                         <form onSubmit={handleSubmit}>
                             <div className="container_block">
                                 <AmountRadioBlock />
-                                <Condition when="sum" notIs={["", "МРОТ"]}>
+                                <Condition when="sum" isNot={["", "МРОТ"]}>
                                 {/* {!(values.sum === undefined || values.sum === "МРОТ") && */}
                                     <React.Fragment>
                                         <NdflSwitchBlock haveNdfl={values.haveNdfl} />
