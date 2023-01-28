@@ -1,4 +1,4 @@
-import { Form } from 'react-final-form';
+import { Form, Field } from 'react-final-form';
 import '../styles/container.scss';
 import "bootstrap/dist/css/bootstrap.min.css";
 import createDecorator from 'final-form-calculate';
@@ -45,6 +45,12 @@ const calculator: any = createDecorator(
     }
 )
 
+const Condition = ({ when, notIs, children }: any | any[]) => (
+    <Field name={when} subscription={{ value: true }}>
+        {({ input: { value } }) => (notIs.includes(value) ? null : children)}
+    </Field>
+)
+
 export default function Container() {
 
     return (
@@ -58,20 +64,22 @@ export default function Container() {
                         <form onSubmit={handleSubmit}>
                             <div className="container_block">
                                 <AmountRadioBlock />
-                                {values.sum !== "МРОТ" && 
-                                (<React.Fragment>
-                                <NdflSwitchBlock haveNdfl={values.haveNdfl} />
-                                <AmountField sum={values.sum} />
-                                <ResultsBlock
-                                    salaryEBDA={values.salaryEBDA}
-                                    ndfl={values.ndfl}
-                                    sum={values.sum}
-                                    money={values.money}
-                                    salary={values.salary}
-                                    percentNdfl={percentNdfl} />
-                                    </React.Fragment>)}
+                                <Condition when="sum" notIs={["", "МРОТ"]}>
+                                {/* {!(values.sum === undefined || values.sum === "МРОТ") && */}
+                                    <React.Fragment>
+                                        <NdflSwitchBlock haveNdfl={values.haveNdfl} />
+                                        <AmountField sum={values.sum} />
+                                        <ResultsBlock
+                                            salaryEBDA={values.salaryEBDA}
+                                            ndfl={values.ndfl}
+                                            sum={values.sum}
+                                            money={values.money}
+                                            salary={values.salary}
+                                            percentNdfl={percentNdfl} />
+                                    </React.Fragment>
+                                    {/* } */}
+                                </Condition>
                             </div>
-                            {/* <div>{JSON.stringify(values)}</div> */}
                         </form>
                     )}
                 />
